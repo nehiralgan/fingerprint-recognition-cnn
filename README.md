@@ -2,10 +2,10 @@
 Hybrid Fingerprint Matching with CNN & Classical Vision**
 
 This repository implements a hybrid fingerprint recognition system that combines:
-Convolutional Neural Network (Siamese CNN) for learned similarity
-Minutiae extraction & matching for structural fingerprint features
-Liveness detection to reject fake fingerprints
-Visualization tools for matched minutiae and decision explanation
+convolutional Neural Network (Siamese CNN) for learned similarity,
+minutiae extraction & matching for structural fingerprint features,
+liveness detection to reject fake fingerprints,
+visualization tools for matched minutiae and decision explanation.
 
 The system processes fingerprint images, computes similarity scores, and produces human-interpretable match visualizations.
 
@@ -14,13 +14,13 @@ The system processes fingerprint images, computes similarity scores, and produce
 **General Information**
 
 Fingerprint recognition is essential in biometric authentication. This system:
-Preprocesses fingerprint images (binarization, skeletonization)
-Extracts minutiae points (ridge endings & bifurcations)
-Computes structural similarity via point matching
-Computes embedding similarity via a Siamese CNN
-Fuses scores for robust identity decision
-Detects liveness (points to potential spoof fingerprints)
-Visualizes matched features (top strongest matches)
+Preprocesses fingerprint images (binarization, skeletonization),
+extracts minutiae points (ridge endings & bifurcations),
+computes structural similarity via point matching,
+computes embedding similarity via a Siamese CNN,
+fuses scores for robust identity decision,
+detects liveness (points to potential spoof fingerprints),
+visualizes matched features (top strongest matches).
 This hybrid approach improves accuracy and interpretability compared to single-method systems.
 
 **Features
