@@ -37,50 +37,51 @@ Rejects fakes based on texture & frequency analysis
 **Score Fusion and Decision Logic**
 
 Weighted fusion:
-final_score = 0.4 × CNN_score + 0.6 × Minutiae_score
-Ambiguity margin controls uncertain decisions
-Thresholding for acceptance / rejection
+final_score = 0.4 × CNN_score + 0.6 × Minutiae_score,
+Ambiguity margin controls uncertain decisions,
+Thresholding for acceptance / rejection.
 
 **Visualization**
 
-Two separate windows showing matched minutiae
-Top-20 strongest matches numbered and color-coded
+Two separate windows showing matched minutiae,
+Top-20 strongest matches numbered and color-coded.
 
 **Requirements**
 
 Ensure you have Python 3.10+, then create a virtual environment and install dependencies:
 
-python -m venv venv
-venv\Scripts\activate       # Windows
-pip install -r requirements.txt
+`python -m venv venv                                                                    
+venv\Scripts\activate       # Windows                                             
+pip install -r requirements.txt`
 
 Dependencies include:
 
-OpenCV    
-PyTorch
-scikit-image
+OpenCV                                                                                   
+PyTorch                                                                               
+scikit-image                                                                       
 SciPy
 
 **Training the CNN**
 
 To train the fingerprint similarity model:
 
-cd cnn
-python train.py
+`cd cnn
+python train.py`
 
 This will produce a model file (e.g., siamese_fingerprint.pth).
-Note: Model weights are not included in the repository.
+
+**Note:** Model weights are not included in the repository.
 
 **Running Recognition**
 
 To run the full recognition pipeline:
 
-python main.py
+`python main.py`
 
-Output will include:
-Liveness score
-Scores for each enrolled person
-Final decision (Accepted / Ambiguous / Rejected)
+Output will include:                                                           
+Liveness score                                                             
+Scores for each enrolled person                                            
+Final decision (Accepted / Ambiguous / Rejected)                                 
 Visualization of matched minutiae points
 
 **How It Works (Technical Summary)
@@ -93,7 +94,7 @@ Minutiae points are extracted and filtered. Matched pairs are found between test
 Pairs of fingerprint images are embedded into a learned space. 
 Similarity is computed as:
 
-score = 1 / (1 + euclidean_distance)
+`score = 1 / (1 + euclidean_distance)`
 
 **Score Fusion & Decision**
 
@@ -150,23 +151,23 @@ Sistem, parmak izi görüntülerini işler, benzerlik skorlarını hesaplar ve i
 **Genel Bilgiler**
 
 Parmak izi tanıma, biyometrik kimlik doğrulama sistemlerinde kritik bir rol oynar. Bu sistem:
-Parmak izi görüntülerini ön işler (ikili hale getirme, iskelet çıkarımı)
-Minütia noktalarını çıkarır (ridge bitişleri ve çatallanma noktaları)
-Nokta eşleştirme ile yapısal benzerlik hesaplar
-Siamese CNN ile öznitelik (embedding) benzerliği hesaplar
-Daha güvenilir bir kimlik kararı için skorları birleştirir
-Sahte parmak izlerini tespit etmek için canlılık analizi yapar
-Eşleşen özellikleri görselleştirir (en güçlü eşleşmeler)
+Parmak izi görüntülerini ön işler (ikili hale getirme, iskelet çıkarımı),
+minütia noktalarını çıkarır (ridge bitişleri ve çatallanma noktaları),
+nokta eşleştirme ile yapısal benzerlik hesaplar,
+siamese CNN ile öznitelik (embedding) benzerliği hesaplar,
+daha güvenilir bir kimlik kararı için skorları birleştirir,
+sahte parmak izlerini tespit etmek için canlılık analizi yapar,
+eşleşen özellikleri görselleştirir (en güçlü eşleşmeler).
 Bu hibrit yaklaşım, tek bir yönteme dayalı sistemlere kıyasla daha yüksek doğruluk ve daha iyi yorumlanabilirlik sağlar.
 
 **Özellikler
 Özellik Çıkarımı**
 
-Parmak izi desenlerinin iskeletleştirilmesi
-Yerel yönelim ve yoğunluk skorlama
-Ridge bitişi ve çatallanma tespiti
-Canlılık (Liveness) Tespiti
-Doku ve frekans analizi kullanarak sahte parmak izlerini reddeder
+Parmak izi desenlerinin iskeletleştirilmesi,
+yerel yönelim ve yoğunluk skorlama,
+ridge bitişi ve çatallanma tespiti,
+canlılık (Liveness) tespiti,
+doku ve frekans analizi kullanarak sahte parmak izlerini reddeder.
 
 **Skor Birleştirme ve Karar Mantığı**
 
@@ -174,37 +175,38 @@ Ağırlıklı skor birleşimi:
 
 final_score = 0.4 × CNN_skoru + 0.6 × Minütia_skoru
 
-Belirsiz kararları kontrol etmek için belirsizlik marjı
+Belirsiz kararları kontrol etmek için belirsizlik marjı,
 Kabul / ret için eşik tabanlı karar mekanizması
 
 **Görselleştirme**
 
-Eşleşen minütiaları iki ayrı pencerede gösterir
-En güçlü 20 eşleşme numaralandırılmış ve renklendirilmiş şekilde çizilir
+Eşleşen minütiaları iki ayrı pencerede gösterir.
+En güçlü 20 eşleşme numaralandırılmış ve renklendirilmiş şekilde çizilir.
 
 **Gereksinimler**
 
 Python 3.10 veya üzeri bir sürümün yüklü olduğundan emin olun. Ardından bir sanal ortam oluşturup bağımlılıkları yükleyin:
 
-python -m venv venv
+`python -m venv venv
 venv\Scripts\activate       # Windows
-pip install -r requirements.txt
+pip install -r requirements.txt`
 
 Kullanılan temel bağımlılıklar:
 
-OpenCV
-PyTorch
-scikit-image
+OpenCV                                                                          
+PyTorch                                                                                  
+scikit-image                                                                            
 SciPy
 
 **CNN Modelinin Eğitilmesi**
 
 Parmak izi benzerlik modelini eğitmek için:
 
-cd cnn
-python train.py
+`cd cnn
+python train.py`
 
 Bu işlem sonunda bir model dosyası üretilir (örneğin siamese_fingerprint.pth).
+
 
 **Not:** Model ağırlıkları depoya dahil edilmemiştir.
 
@@ -212,46 +214,46 @@ Bu işlem sonunda bir model dosyası üretilir (örneğin siamese_fingerprint.pt
 
 Tüm tanıma hattını çalıştırmak için:
 
-python main.py
+`python main.py`
 
 Çıktı olarak şunlar üretilir:
-Canlılık skoru
-Kayıtlı her kişi için benzerlik skorları
-Nihai karar (Kabul / Belirsiz / Reddedildi)
-Eşleşen minütia noktalarının görselleştirilmesi
+Canlılık skoru,
+kayıtlı her kişi için benzerlik skorları,
+nihai karar (Kabul / Belirsiz / Reddedildi),
+eşleşen minütia noktalarının görselleştirilmesi.
 
 **Nasıl Çalışır? (Teknik Özet)
-Minütia Eşleştirme**
+Minutiae Eşleştirme**
 
-Minütia noktaları çıkarılır ve filtrelenir. Test ve referans parmak izleri arasında eşleşen nokta çiftleri bulunur. En güçlü eşleşmeler yapısal benzerliği gösterir.
+Minutiae noktaları çıkarılır ve filtrelenir. Test ve referans parmak izleri arasında eşleşen nokta çiftleri bulunur. En güçlü eşleşmeler yapısal benzerliği gösterir.
 
 **Siamese CNN**
 
 Parmak izi görüntü çiftleri öğrenilmiş bir uzaya gömülür (embedding).
 Benzerlik şu şekilde hesaplanır:
 
-score = 1 / (1 + öklidyen_mesafe)
+`score = 1 / (1 + öklidyen_mesafe)`
 
 **Skor Birleştirme ve Karar**
 
 Nihai karar şu unsurlara dayanır:
-CNN ve yapısal skorların ağırlıklı birleşimi
-Geçerli kimlik için eşik değeri
-Belirsiz kararları önlemek için skor farkı marjı
+CNN ve yapısal skorların ağırlıklı birleşimi,
+geçerli kimlik için eşik değeri,
+belirsiz kararları önlemek için skor farkı marjı.
 Bu tasarım, öğrenilmiş örüntüler ile yapısal özellikler arasında denge kurar.
 
 **Kullanım Alanları**
 
-Biyometrik kimlik doğrulama araştırmaları
-Hibrit eşleştirme sistemleri için akademik demonstrasyon
-Parmak izi canlılık analizi
-Eşleşme süreçlerinin görsel anlatımı
+Biyometrik kimlik doğrulama araştırmaları,
+hibrit eşleştirme sistemleri için akademik demonstrasyon,
+parmak izi canlılık analizi,
+eşleşme süreçlerinin görsel anlatımı.
 
 **Sınırlamalar**
 
-Veri kümesi küçük olduğu için model doğruluğu sınırlıdır
-Yalnızca CPU üzerinde çalışır — GPU’ya göre daha yavaştır
-Üretim ortamlarında kullanılmak üzere tasarlanmamıştır
+Veri kümesi küçük olduğu için model doğruluğu sınırlıdır.
+Yalnızca CPU üzerinde çalışır — GPU’ya göre daha yavaştır.
+Üretim ortamlarında kullanılmak üzere tasarlanmamıştır.
 Bu proje, öğrenme, deney yapma ve prototipleme amaçlıdır.
 
 **Atıf ve Kaynaklar**
