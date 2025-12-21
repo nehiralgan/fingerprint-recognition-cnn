@@ -130,37 +130,141 @@ For major changes, please discuss before submitting.
 
 If you have questions about this project, feel free to open an issue or contact the author.
 
-**License**
-
-Specify your license (e.g. MIT License) if you choose.
 
 
-🇹🇷 
-Proje Özeti
+**🇹🇷** 
 
-Bu proje, parmak izi tanıma için geliştirilmiş hibrit bir sistemdir.
-CNN tabanlı öğrenme ile klasik görüntü işleme (minutiae) birlikte kullanılır.
+**Parmak İzi Tanıma Sistemi**
 
-Kurulum
+**CNN ve Klasik Görüntü İşleme ile Hibrit Parmak İzi Eşleştirme**
+
+Bu depo, aşağıdaki yöntemleri birleştiren hibrit bir parmak izi tanıma sistemi sunmaktadır:
+Öğrenilmiş benzerlik için Evrişimli Sinir Ağı (Siamese CNN)
+Yapısal parmak izi özellikleri için minütia çıkarımı ve eşleştirme
+Sahte parmak izlerini elemek için canlılık (liveness) tespiti
+Eşleşen minütiaları ve karar sürecini açıklamak için görselleştirme araçları
+Sistem, parmak izi görüntülerini işler, benzerlik skorlarını hesaplar ve insan tarafından yorumlanabilir eşleşme görselleri üretir.
+
+**Not:** Örnek çıktı veya görsel sonuçları görmek için screenshots/ dizinine bakabilir ya da sistemi çalıştırarak çıktıları kendiniz üretebilirsiniz.
+
+**Genel Bilgiler**
+
+Parmak izi tanıma, biyometrik kimlik doğrulama sistemlerinde kritik bir rol oynar. Bu sistem:
+Parmak izi görüntülerini ön işler (ikili hale getirme, iskelet çıkarımı)
+Minütia noktalarını çıkarır (ridge bitişleri ve çatallanma noktaları)
+Nokta eşleştirme ile yapısal benzerlik hesaplar
+Siamese CNN ile öznitelik (embedding) benzerliği hesaplar
+Daha güvenilir bir kimlik kararı için skorları birleştirir
+Sahte parmak izlerini tespit etmek için canlılık analizi yapar
+Eşleşen özellikleri görselleştirir (en güçlü eşleşmeler)
+Bu hibrit yaklaşım, tek bir yönteme dayalı sistemlere kıyasla daha yüksek doğruluk ve daha iyi yorumlanabilirlik sağlar.
+
+**Özellikler
+Özellik Çıkarımı**
+
+Parmak izi desenlerinin iskeletleştirilmesi
+Yerel yönelim ve yoğunluk skorlama
+Ridge bitişi ve çatallanma tespiti
+Canlılık (Liveness) Tespiti
+Doku ve frekans analizi kullanarak sahte parmak izlerini reddeder
+
+**Skor Birleştirme ve Karar Mantığı**
+
+Ağırlıklı skor birleşimi:
+
+final_score = 0.4 × CNN_skoru + 0.6 × Minütia_skoru
+
+Belirsiz kararları kontrol etmek için belirsizlik marjı
+Kabul / ret için eşik tabanlı karar mekanizması
+
+**Görselleştirme**
+
+Eşleşen minütiaları iki ayrı pencerede gösterir
+En güçlü 20 eşleşme numaralandırılmış ve renklendirilmiş şekilde çizilir
+
+**Gereksinimler**
+
+Python 3.10 veya üzeri bir sürümün yüklü olduğundan emin olun. Ardından bir sanal ortam oluşturup bağımlılıkları yükleyin:
+
 python -m venv venv
-venv\Scripts\activate
+venv\Scripts\activate       # Windows
 pip install -r requirements.txt
 
-Eğitim
+Kullanılan temel bağımlılıklar:
+
+OpenCV
+PyTorch
+scikit-image
+SciPy
+
+**CNN Modelinin Eğitilmesi**
+
+Parmak izi benzerlik modelini eğitmek için:
+
 cd cnn
 python train.py
 
-Çalıştırma
+Bu işlem sonunda bir model dosyası üretilir (örneğin siamese_fingerprint.pth).
+
+**Not:** Model ağırlıkları depoya dahil edilmemiştir.
+
+**Tanıma Sisteminin Çalıştırılması**
+
+Tüm tanıma hattını çalıştırmak için:
+
 python main.py
 
-Özellikler
+Çıktı olarak şunlar üretilir:
+Canlılık skoru
+Kayıtlı her kişi için benzerlik skorları
+Nihai karar (Kabul / Belirsiz / Reddedildi)
+Eşleşen minütia noktalarının görselleştirilmesi
 
-Minutiae çıkarımı
-Siamese CNN benzerlik skorlaması
-Canlılık testi
-Eşleşen noktaların görsel gösterimi
+**Nasıl Çalışır? (Teknik Özet)
+Minütia Eşleştirme**
 
-Kısıtlamalar
-Küçük veri seti
+Minütia noktaları çıkarılır ve filtrelenir. Test ve referans parmak izleri arasında eşleşen nokta çiftleri bulunur. En güçlü eşleşmeler yapısal benzerliği gösterir.
+
+**Siamese CNN**
+
+Parmak izi görüntü çiftleri öğrenilmiş bir uzaya gömülür (embedding).
+Benzerlik şu şekilde hesaplanır:
+
+score = 1 / (1 + öklidyen_mesafe)
+
+**Skor Birleştirme ve Karar**
+
+Nihai karar şu unsurlara dayanır:
+CNN ve yapısal skorların ağırlıklı birleşimi
+Geçerli kimlik için eşik değeri
+Belirsiz kararları önlemek için skor farkı marjı
+Bu tasarım, öğrenilmiş örüntüler ile yapısal özellikler arasında denge kurar.
+
+**Kullanım Alanları**
+
+Biyometrik kimlik doğrulama araştırmaları
+Hibrit eşleştirme sistemleri için akademik demonstrasyon
+Parmak izi canlılık analizi
+Eşleşme süreçlerinin görsel anlatımı
+
+**Sınırlamalar**
+
+Veri kümesi küçük olduğu için model doğruluğu sınırlıdır
+Yalnızca CPU üzerinde çalışır — GPU’ya göre daha yavaştır
+Üretim ortamlarında kullanılmak üzere tasarlanmamıştır
+Bu proje, öğrenme, deney yapma ve prototipleme amaçlıdır.
+
+**Atıf ve Kaynaklar**
+
+Bu proje, biyometrik sistemlerde kullanılan hibrit yaklaşımlardan ve CNN Explainer gibi etkileşimli CNN görselleştirme araçlarından ilham almıştır.
+
+**Katkı**
+
+Katkıda bulunmak isterseniz issue açabilir veya pull request gönderebilirsiniz.
+Büyük değişiklikler için lütfen önce tartışma başlatın.
+
+**İletişim**
+
+Bu proje hakkında sorularınız varsa issue açabilir veya proje sahibiyle iletişime geçebilirsiniz.
 CPU ile çalışır.
 Üretim için hazır değildir.
