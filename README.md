@@ -1,12 +1,6 @@
 **Fingerprint Recognition System
 Hybrid Fingerprint Matching with CNN & Classical Vision**
 
-**Live Demo / Example Output**
-
-If you want to see example outputs or visual results, check the screenshots/ directory or generate via running the system.
-
-**Project Overview**
-
 This repository implements a hybrid fingerprint recognition system that combines:
 Convolutional Neural Network (Siamese CNN) for learned similarity
 Minutiae extraction & matching for structural fingerprint features
@@ -15,7 +9,9 @@ Visualization tools for matched minutiae and decision explanation
 
 The system processes fingerprint images, computes similarity scores, and produces human-interpretable match visualizations.
 
-**What This Project Does**
+**Note:** If you want to see example outputs or visual results, check the screenshots/ directory or generate via running the system.
+
+**General Information**
 
 Fingerprint recognition is essential in biometric authentication. This system:
 Preprocesses fingerprint images (binarization, skeletonization)
@@ -34,11 +30,6 @@ Skeletonization of fingerprint patterns
 Local orientation & density scoring
 Ending and bifurcation detection
 
-**Siamese CNN**
-
-Lightweight CNN trained with contrastive loss
-Learns fingerprint embeddings for similarity
-
 **Liveness Detection**
 
 Rejects fakes based on texture & frequency analysis
@@ -55,38 +46,13 @@ Thresholding for acceptance / rejection
 Two separate windows showing matched minutiae
 Top-20 strongest matches numbered and color-coded
 
-**Repository Structure**
-fingerprint_project/
-├── cnn/                      # CNN training & inference
-│   ├── dataset.py
-│   ├── model.py
-│   ├── train.py
-│   └── infer.py
-│
-├── src/                      # Classical fingerprint analysis
-│   ├── preprocess.py
-│   ├── minutiae.py
-│   ├── matcher.py
-│   ├── liveness.py
-│   └── visualize.py
-│
-├── data/                     # Train/test fingerprint images (not tracked)
-│   ├── train/
-│   └── test/
-│
-├── main.py                   # Runs full system on test set
-├── requirements.txt
-├── .gitignore
-└── README.md
-
-**Installation**
+**Requirements**
 
 Ensure you have Python 3.10+, then create a virtual environment and install dependencies:
 
 python -m venv venv
-venv\Scripts\activate         # Windows
+venv\Scripts\activate       # Windows
 pip install -r requirements.txt
-
 
 Dependencies include:
 
@@ -94,7 +60,6 @@ OpenCV
 PyTorch
 scikit-image
 SciPy
-(full list in requirements.txt)
 
 **Training the CNN**
 
@@ -125,7 +90,8 @@ Minutiae points are extracted and filtered. Matched pairs are found between test
 
 **Siamese CNN**
 
-Pairs of fingerprint images are embedded into a learned space. Similarity is computed as:
+Pairs of fingerprint images are embedded into a learned space. 
+Similarity is computed as:
 
 score = 1 / (1 + euclidean_distance)
 
