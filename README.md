@@ -54,7 +54,10 @@ Top-20 strongest matches numbered and color-coded.
 Left: Test fingerprint  
 Right: Best-matching reference fingerprint with highlighted minutiae
 
+![Fingerprint Matching Visualization](screenshots/match_example(test).png)
 
+
+>>>>>>> 4882e8c36cb6aa799347f184b66358e8adcdf695
 **Requirements**
 
 Ensure you have Python 3.10+, then create a virtual environment and install dependencies:
@@ -273,3 +276,91 @@ Büyük değişiklikler için lütfen önce tartışma başlatın.
 ## İletişim
 
 Bu proje hakkında sorularınız varsa issue açabilir veya proje sahibiyle iletişime geçebilirsiniz.
+=======
+
+**Görselleştirme**
+
+Eşleşen minütiaları iki ayrı pencerede gösterir.
+En güçlü 20 eşleşme numaralandırılmış ve renklendirilmiş şekilde çizilir.
+
+**Gereksinimler**
+
+Python 3.10 veya üzeri bir sürümün yüklü olduğundan emin olun. Ardından bir sanal ortam oluşturup bağımlılıkları yükleyin:
+
+`python -m venv venv                                                                                                                  
+venv\Scripts\activate       # Windows                                                                                                
+pip install -r requirements.txt`
+
+Kullanılan temel bağımlılıklar:
+
+OpenCV                                                                          
+PyTorch                                                                                  
+scikit-image                                                                            
+SciPy
+
+**CNN Modelinin Eğitilmesi**
+
+Parmak izi benzerlik modelini eğitmek için:
+
+`cd cnn
+python train.py`
+
+Bu işlem sonunda bir model dosyası üretilir (örneğin siamese_fingerprint.pth).
+
+
+**Not:** Model ağırlıkları depoya dahil edilmemiştir.
+
+**Tanıma Sisteminin Çalıştırılması**
+
+Tüm tanıma hattını çalıştırmak için:
+
+`python main.py`
+
+Çıktı olarak şunlar üretilir:
+Canlılık skoru,
+kayıtlı her kişi için benzerlik skorları,
+nihai karar (Kabul / Belirsiz / Reddedildi),
+eşleşen minutiae noktalarının görselleştirilmesi.
+
+## Nasıl Çalışır?                                                                                                            
+## Minutiae Eşleştirme
+
+Minutiae noktaları çıkarılır ve filtrelenir. Test ve referans parmak izleri arasında eşleşen nokta çiftleri bulunur. En güçlü eşleşmeler yapısal benzerliği gösterir.
+
+**Siamese CNN**
+
+Parmak izi görüntü çiftleri öğrenilmiş bir uzaya gömülür (embedding).
+Benzerlik şu şekilde hesaplanır:
+
+`score = 1 / (1 + euclidean_distance)`
+
+**Skor Birleştirme ve Karar**
+
+Nihai karar şu unsurlara dayanır:
+CNN ve yapısal skorların ağırlıklı birleşimi,
+geçerli kimlik için eşik değeri,
+belirsiz kararları önlemek için skor farkı marjı.
+Bu tasarım, öğrenilmiş örüntüler ile yapısal özellikler arasında denge kurar.
+
+**Kullanım Alanları**
+
+Biyometrik kimlik doğrulama araştırmaları,
+hibrit eşleştirme sistemleri için akademik demonstrasyon,
+parmak izi canlılık analizi,
+eşleşme süreçlerinin görsel anlatımı.
+
+**Sınırlamalar**
+
+Üretim ortamlarında kullanılmak üzere tasarlanmamıştır.
+Bu proje, öğrenme, deney yapma ve prototipleme amaçlıdır.
+
+**Katkı**
+
+Katkıda bulunmak isterseniz issue açabilir veya pull request gönderebilirsiniz.
+Büyük değişiklikler için lütfen önce tartışma başlatın.
+
+## İletişim
+
+Bu proje hakkında sorularınız varsa issue açabilir veya proje sahibiyle iletişime geçebilirsiniz.
+
+>>>>>>> 4882e8c36cb6aa799347f184b66358e8adcdf695
