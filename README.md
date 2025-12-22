@@ -1,5 +1,5 @@
-**Fingerprint Recognition System
-Hybrid Fingerprint Matching with CNN & Classical Vision**
+## Fingerprint Recognition System
+## Hybrid Fingerprint Matching with CNN & Classical Vision
 
 This repository implements a hybrid fingerprint recognition system that combines:
 convolutional Neural Network (Siamese CNN) for learned similarity,
@@ -11,7 +11,7 @@ The system processes fingerprint images, computes similarity scores, and produce
 
 **Note:** If you want to see example outputs or visual results, check the screenshots/ directory or generate via running the system.
 
-**General Information**
+## General Information
 
 Fingerprint recognition is essential in biometric authentication. This system:
 Preprocesses fingerprint images (binarization, skeletonization),
@@ -23,8 +23,8 @@ detects liveness (points to potential spoof fingerprints),
 visualizes matched features (top strongest matches).
 This hybrid approach improves accuracy and interpretability compared to single-method systems.
 
-**Features
-Feature Extraction**
+## Features
+## Feature Extraction
 
 Skeletonization of fingerprint patterns
 Local orientation & density scoring
@@ -84,8 +84,8 @@ Scores for each enrolled person
 Final decision (Accepted / Ambiguous / Rejected)                                 
 Visualization of matched minutiae points
 
-**How It Works (Technical Summary)                                                                                                         
-Minutiae Matching**
+## How It Works                                                                                                          
+## Minutiae Matching
 
 Minutiae points are extracted and filtered. Matched pairs are found between test and reference prints. Top matched pairs show structural similarity.
 
@@ -106,28 +106,22 @@ This design balances learned patterns and structural features.
 
 **Use Cases**
 
-Biometric authentication research
-Academic demonstration of hybrid matching
-Fingerprint liveness evaluation
-Visual demonstration of matching
+Biometric authentication research,
+academic demonstration of hybrid matching,
+fingerprint liveness evaluation,
+visual demonstration of matching.
 
 **Limitations**
 
-Dataset is small — model accuracy is limited
-CPU-only inference — slower than GPU
 Not for production security systems
 This project is for learning, experimentation, and prototyping.
-
-**Citation & Attribution**
-
-This project draws inspiration from hybrid approaches in biometrics and interactive CNN explainer models like CNN Explainer: an interactive CNN visualization tool. 
 
 **Contributing**
 
 Feel free to open issues or pull requests.
 For major changes, please discuss before submitting.
 
-**Contact**
+## Contact
 
 If you have questions about this project, feel free to open an issue or contact the author.
 
@@ -135,9 +129,9 @@ If you have questions about this project, feel free to open an issue or contact 
 
 **🇹🇷** 
 
-**Parmak İzi Tanıma Sistemi**
+## Parmak İzi Tanıma Sistemi
 
-**CNN ve Klasik Görüntü İşleme ile Hibrit Parmak İzi Eşleştirme**
+## CNN ve Klasik Görüntü İşleme ile Hibrit Parmak İzi Eşleştirme
 
 Bu depo, aşağıdaki yöntemleri birleştiren hibrit bir parmak izi tanıma sistemi sunmaktadır:
 Öğrenilmiş benzerlik için Evrişimli Sinir Ağı (Siamese CNN)
@@ -148,7 +142,7 @@ Sistem, parmak izi görüntülerini işler, benzerlik skorlarını hesaplar ve i
 
 **Not:** Örnek çıktı veya görsel sonuçları görmek için screenshots/ dizinine bakabilir ya da sistemi çalıştırarak çıktıları kendiniz üretebilirsiniz.
 
-**Genel Bilgiler**
+## Genel Bilgiler
 
 Parmak izi tanıma, biyometrik kimlik doğrulama sistemlerinde kritik bir rol oynar. Bu sistem:
 Parmak izi görüntülerini ön işler (ikili hale getirme, iskelet çıkarımı),
@@ -160,8 +154,8 @@ sahte parmak izlerini tespit etmek için canlılık analizi yapar,
 eşleşen özellikleri görselleştirir (en güçlü eşleşmeler).
 Bu hibrit yaklaşım, tek bir yönteme dayalı sistemlere kıyasla daha yüksek doğruluk ve daha iyi yorumlanabilirlik sağlar.
 
-**Özellikler
-Özellik Çıkarımı**
+## Özellikler
+## Özellik Çıkarımı
 
 Parmak izi desenlerinin iskeletleştirilmesi,
 yerel yönelim ve yoğunluk skorlama,
@@ -222,8 +216,8 @@ kayıtlı her kişi için benzerlik skorları,
 nihai karar (Kabul / Belirsiz / Reddedildi),
 eşleşen minutiae noktalarının görselleştirilmesi.
 
-**Nasıl Çalışır? (Teknik Özet)                                                                                                           
-Minutiae Eşleştirme**
+## Nasıl Çalışır?                                                                                                            
+## Minutiae Eşleştirme
 
 Minutiae noktaları çıkarılır ve filtrelenir. Test ve referans parmak izleri arasında eşleşen nokta çiftleri bulunur. En güçlü eşleşmeler yapısal benzerliği gösterir.
 
@@ -251,22 +245,15 @@ eşleşme süreçlerinin görsel anlatımı.
 
 **Sınırlamalar**
 
-Veri kümesi küçük olduğu için model doğruluğu sınırlıdır.
-Yalnızca CPU üzerinde çalışır — GPU’ya göre daha yavaştır.
 Üretim ortamlarında kullanılmak üzere tasarlanmamıştır.
 Bu proje, öğrenme, deney yapma ve prototipleme amaçlıdır.
-
-**Atıf ve Kaynaklar**
-
-Bu proje, biyometrik sistemlerde kullanılan hibrit yaklaşımlardan ve CNN Explainer gibi etkileşimli CNN görselleştirme araçlarından ilham almıştır.
 
 **Katkı**
 
 Katkıda bulunmak isterseniz issue açabilir veya pull request gönderebilirsiniz.
 Büyük değişiklikler için lütfen önce tartışma başlatın.
 
-**İletişim**
+## İletişim
 
 Bu proje hakkında sorularınız varsa issue açabilir veya proje sahibiyle iletişime geçebilirsiniz.
-CPU ile çalışır.
-Üretim için hazır değildir.
+
