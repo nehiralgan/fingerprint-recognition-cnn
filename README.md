@@ -50,8 +50,8 @@ Top-20 strongest matches numbered and color-coded.
 
 Ensure you have Python 3.10+, then create a virtual environment and install dependencies:
 
-`python -m venv venv                                                                    
-venv\Scripts\activate       # Windows                                             
+`python -m venv venv                                                                                                              
+venv\Scripts\activate       # Windows                                                                                              
 pip install -r requirements.txt`
 
 Dependencies include:
@@ -84,7 +84,7 @@ Scores for each enrolled person
 Final decision (Accepted / Ambiguous / Rejected)                                 
 Visualization of matched minutiae points
 
-**How It Works (Technical Summary)
+**How It Works (Technical Summary)                                                                                                         
 Minutiae Matching**
 
 Minutiae points are extracted and filtered. Matched pairs are found between test and reference prints. Top matched pairs show structural similarity.
@@ -152,7 +152,7 @@ Sistem, parmak izi görüntülerini işler, benzerlik skorlarını hesaplar ve i
 
 Parmak izi tanıma, biyometrik kimlik doğrulama sistemlerinde kritik bir rol oynar. Bu sistem:
 Parmak izi görüntülerini ön işler (ikili hale getirme, iskelet çıkarımı),
-minütia noktalarını çıkarır (ridge bitişleri ve çatallanma noktaları),
+minutiae noktalarını çıkarır (ridge bitişleri ve çatallanma noktaları),
 nokta eşleştirme ile yapısal benzerlik hesaplar,
 siamese CNN ile öznitelik (embedding) benzerliği hesaplar,
 daha güvenilir bir kimlik kararı için skorları birleştirir,
@@ -187,8 +187,8 @@ En güçlü 20 eşleşme numaralandırılmış ve renklendirilmiş şekilde çiz
 
 Python 3.10 veya üzeri bir sürümün yüklü olduğundan emin olun. Ardından bir sanal ortam oluşturup bağımlılıkları yükleyin:
 
-`python -m venv venv
-venv\Scripts\activate       # Windows
+`python -m venv venv                                                                                                                  
+venv\Scripts\activate       # Windows                                                                                                
 pip install -r requirements.txt`
 
 Kullanılan temel bağımlılıklar:
@@ -220,9 +220,9 @@ Tüm tanıma hattını çalıştırmak için:
 Canlılık skoru,
 kayıtlı her kişi için benzerlik skorları,
 nihai karar (Kabul / Belirsiz / Reddedildi),
-eşleşen minütia noktalarının görselleştirilmesi.
+eşleşen minutiae noktalarının görselleştirilmesi.
 
-**Nasıl Çalışır? (Teknik Özet)
+**Nasıl Çalışır? (Teknik Özet)                                                                                                           
 Minutiae Eşleştirme**
 
 Minutiae noktaları çıkarılır ve filtrelenir. Test ve referans parmak izleri arasında eşleşen nokta çiftleri bulunur. En güçlü eşleşmeler yapısal benzerliği gösterir.
@@ -232,7 +232,7 @@ Minutiae noktaları çıkarılır ve filtrelenir. Test ve referans parmak izleri
 Parmak izi görüntü çiftleri öğrenilmiş bir uzaya gömülür (embedding).
 Benzerlik şu şekilde hesaplanır:
 
-`score = 1 / (1 + öklidyen_mesafe)`
+`score = 1 / (1 + euclidean_distance)`
 
 **Skor Birleştirme ve Karar**
 
