@@ -99,7 +99,7 @@ def main():
         else:
             print(f"SONUÇ: KİMLİK DOĞRULANDI → {best_person}")
             visualize_matches(test_image, best_ref, best_pairs)
-
+            break
 
 if __name__ == "__main__":
     main()
