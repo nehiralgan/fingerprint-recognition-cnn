@@ -46,7 +46,7 @@ Thresholding for acceptance / rejection.
 Two separate windows showing matched minutiae,
 Top-20 strongest matches numbered and color-coded.
 
-![Fingerprint Matching Visualization](screenshots/match_example(test).png)(screenshots/match_example(reference).png)
+![Fingerprint Matching Visualization](screenshots/match_example(test).png)
 
 
 **Requirements**
