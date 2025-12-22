@@ -46,6 +46,9 @@ Thresholding for acceptance / rejection.
 Two separate windows showing matched minutiae,
 Top-20 strongest matches numbered and color-coded.
 
+![Fingerprint Matching Visualization](screenshots/match_example(test).png)(screenshots/match_example(reference).png)
+
+
 **Requirements**
 
 Ensure you have Python 3.10+, then create a virtual environment and install dependencies:
