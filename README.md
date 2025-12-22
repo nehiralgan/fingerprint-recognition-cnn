@@ -269,11 +269,6 @@ Bu proje, öğrenme, deney yapma ve prototipleme amaçlıdır.
 Katkıda bulunmak isterseniz issue açabilir veya pull request gönderebilirsiniz.
 Büyük değişiklikler için lütfen önce tartışma başlatın.
 
-## İletişim
-
-Bu proje hakkında sorularınız varsa issue açabilir veya proje sahibiyle iletişime geçebilirsiniz.
-=======
-
 **Görselleştirme**
 
 Eşleşen minütiaları iki ayrı pencerede gösterir.
