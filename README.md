@@ -54,10 +54,6 @@ Top-20 strongest matches numbered and color-coded.
 Left: Test fingerprint  
 Right: Best-matching reference fingerprint with highlighted minutiae
 
-![Fingerprint Matching Visualization](screenshots/match_example(test).png)
-
-
->>>>>>> 4882e8c36cb6aa799347f184b66358e8adcdf695
 **Requirements**
 
 Ensure you have Python 3.10+, then create a virtual environment and install dependencies:
@@ -363,4 +359,4 @@ Büyük değişiklikler için lütfen önce tartışma başlatın.
 
 Bu proje hakkında sorularınız varsa issue açabilir veya proje sahibiyle iletişime geçebilirsiniz.
 
->>>>>>> 4882e8c36cb6aa799347f184b66358e8adcdf695
+
