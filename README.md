@@ -58,7 +58,7 @@ Right: Best-matching reference fingerprint with highlighted minutiae
 
 Ensure you have Python 3.10+, then create a virtual environment and install dependencies:
 
-`python -m venv venv                                                                                                              
+`python -m venv venv                                                                                                     
 venv\Scripts\activate       # Windows                                                                                              
 pip install -r requirements.txt`
 
