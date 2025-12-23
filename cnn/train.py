@@ -24,7 +24,7 @@ class ContrastiveLoss(nn.Module):
 def train():
     device = torch.device("cpu")
 
-    # 🔹 DATASET (fail-safe)
+    # DATASET (fail-safe)
     dataset = FingerprintPairDataset(
         data_dir="../data/train",   # SADECE TRAIN
     )
@@ -36,14 +36,14 @@ def train():
         dataset,
         batch_size=8,
         shuffle=True,
-        drop_last=True   # 🔥 tek kalan batch sorununu engeller
+        drop_last=True   # tek kalan batch sorununu engeller
     )
 
     model = SiameseCNN().to(device)
     criterion = ContrastiveLoss(margin=1.0)
     optimizer = optim.Adam(model.parameters(), lr=1e-3)
 
-    epochs = 8  # 🔥 sunum için ideal
+    epochs = 8
 
     print("\n>>> EĞİTİM BAŞLADI <<<\n")
 
@@ -63,7 +63,7 @@ def train():
             loss = criterion(out1, out2, label)
 
             loss.backward()
-            optimizer.step()
+            optimizer.step() #Embedding uzayı güncellenir
 
             total_loss += loss.item()
             valid_batches += 1
@@ -71,7 +71,7 @@ def train():
         avg_loss = total_loss / max(valid_batches, 1)
         print(f"Epoch [{epoch+1}/{epochs}] - Loss: {avg_loss:.4f}")
 
-    # 🔹 MODEL KAYIT
+    # MODEL KAYIT
     torch.save(model.state_dict(), "siamese_fingerprint.pth")
     print("\nModel kaydedildi: siamese_fingerprint.pth\n")
 

@@ -12,7 +12,7 @@ def visualize_matches(test_img_path, ref_img_path, matched_pairs, top_k=20):
     test_vis = test_img.copy()
     ref_vis = ref_img.copy()
 
-    # 🔹 SADECE EN GÜÇLÜ 20 EŞLEŞME
+    # SADECE EN GÜÇLÜ 20 EŞLEŞME
     top_matches = matched_pairs[:top_k]
 
     for i, pair in enumerate(top_matches):
@@ -24,7 +24,7 @@ def visualize_matches(test_img_path, ref_img_path, matched_pairs, top_k=20):
         # Referans → kırmızı
         cv2.circle(ref_vis, (int(x2), int(y2)), 4, (0, 0, 255), -1)
 
-        # 🔹 Numara ekle (sunum için çok iyi)
+        # 🔹 Numara ekle 
         cv2.putText(
             test_vis, str(i + 1),
             (int(x1) + 5, int(y1) - 5),
