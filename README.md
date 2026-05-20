@@ -1,13 +1,9 @@
 ## Fingerprint Recognition System
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-<!-- OpenCV -->
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
-<!-- PyTorch -->
 ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
-<!-- scikit-image -->
 ![scikit-image](https://img.shields.io/badge/scikit--image-005A9C?style=for-the-badge&logo=scikit-image&logoColor=white)
-<!-- SciPy -->
 ![SciPy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=white)
 
 ## Hybrid Fingerprint Matching with CNN & Classical Vision
