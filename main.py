@@ -24,10 +24,10 @@ def main():
 
     THRESHOLD = 0.50
     LIVENESS_THRESHOLD = 0.25
-    AMBIGUITY_MARGIN = 0.02
-    MAX_REF = 5
+    AMBIGUITY_MARGIN = 0.01
+    MAX_REF = 7
 
-    test_files = ["test_fp8.png"]
+    test_files = ["test_fp4.png"]
 
     for test_file in test_files:
         test_image = os.path.join(TEST_DIR, test_file)

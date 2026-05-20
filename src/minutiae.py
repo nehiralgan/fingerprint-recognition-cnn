@@ -61,4 +61,3 @@ def detect_minutiae(skeleton, binary_img):
                     bifurcations.append((x, y, angle, density))
 
     return endings, bifurcations
-
